@@ -10,6 +10,7 @@
 public class POOP1 {
    public int apple;
    public int banana;
+   public int cucumber;
     
     
 }
