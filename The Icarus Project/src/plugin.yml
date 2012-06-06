@@ -1,4 +1,4 @@
-author: DV8FromTheWorld
+authors: [DV8FromTheWorld, GadgetTvMan]
 database: false
 description: A player height limiter.  Prevents a player from going up past the specified
   height

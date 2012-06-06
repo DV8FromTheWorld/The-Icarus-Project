@@ -14,7 +14,6 @@ public class IcarusPlayerListener implements Listener{
     public Player current;
     public Location location;
     public Location movePlayerTo;
-    public int takeAwayFromHeightLimit = 2;
     public int newY;
     private Location test;
     
@@ -30,7 +29,7 @@ public class IcarusPlayerListener implements Listener{
         location = current.getLocation();
         height = location.getY();
         if(height > plugin.heightLimit){
-            newY = (plugin.heightLimit - takeAwayFromHeightLimit);
+            newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
             movePlayerTo = location;
             movePlayerTo.setY(newY);
             event.setTo(movePlayerTo);
