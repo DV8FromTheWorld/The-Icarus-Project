@@ -28,9 +28,6 @@ public class IcarusPlayerListener implements Listener{
         current = event.getPlayer();
         location = current.getLocation();
         height = location.getY();
-        if(current.hasPermission("TIP.Ignore.height.limit")){
-            
-        }
         if(height > plugin.heightLimit){
             if(current.hasPermission("TIP.Ignore.height.limit")){
                 
