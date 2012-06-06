@@ -17,7 +17,7 @@ public class TheIcarusProject extends JavaPlugin{
      private final Logger myLogger = Logger.getLogger("Minecraft");
      private FileConfiguration config;
      private int len;
-     public int heightlimit;
+     public int heightLimit;
     
     
     public void onDisable() {
@@ -36,7 +36,7 @@ public class TheIcarusProject extends JavaPlugin{
         config.addDefault("height limit", 75);
         config.options().copyDefaults(true);
         saveConfig();
-        heightlimit = config.getInt("height limit");
+        heightLimit = config.getInt("height limit");
         
     }
     
