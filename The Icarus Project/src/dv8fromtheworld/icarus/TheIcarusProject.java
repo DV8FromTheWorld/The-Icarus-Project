@@ -26,7 +26,14 @@ public class TheIcarusProject extends JavaPlugin{
 
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new IcarusPlayerListener(this), this);
-
+        info = this.getDescription();
+        configFile = new File(getDataFolder(), "config.yml");
+        if (!configFile.exists()) {
+            configFile.getParentFile().mkdirs();
+            copy(getResource("config.yml"), configFile);
+        }
+        config = this.getConfig();       
+        
         loadConfiguration();
         logMessage("has been successfully enabled!");
     }
