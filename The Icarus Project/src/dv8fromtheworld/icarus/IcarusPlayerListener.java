@@ -30,12 +30,10 @@ public class IcarusPlayerListener implements Listener{
         location = current.getLocation();
         height = location.getY();
         if(height > plugin.heightLimit){
-           // newY = plugin.heightLimit - takeAwayFromHeightLimit;
-           // movePlayerTo = location;
-           // movePlayerTo.setY(newY);
-           // event.setTo(movePlayerTo);
-            test = event.getFrom();
-            event.setTo(test);
+            newY = (plugin.heightLimit - takeAwayFromHeightLimit);
+            movePlayerTo = location;
+            movePlayerTo.setY(newY);
+            event.setTo(movePlayerTo);
             current.sendMessage("you cant go higher than this, sorry chap!");
            
            
