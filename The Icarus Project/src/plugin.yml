@@ -1,0 +1,8 @@
+author: DV8FromTheWorld
+database: false
+description: A player height limiter.  Prevents a player from going up past the specified
+  height
+main: dv8fromtheworld.icarus.TheIcarusProject
+name: The Icarus Project
+startup: postworld
+version: '1.0'
