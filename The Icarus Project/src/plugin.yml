@@ -6,3 +6,7 @@ main: dv8fromtheworld.icarus.TheIcarusProject
 name: TheIcarusProject
 startup: postworld
 version: '1.0'
+permissions:
+  TIP.Ignore.height.limit:
+    description: excuses player from the height limit
+    default: false
