@@ -1,5 +1,6 @@
 package dv8fromtheworld.icarus;
 
+import java.lang.Math;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,27 +13,27 @@ public class IcarusPlayerListener implements Listener{
     private final TheIcarusProject plugin;
     public double height;
     public Player current;
+    int takeAwayFromHeightLimit = 2;
+    public int movePlayerTo;
     
     IcarusPlayerListener(TheIcarusProject instance) {
        this.plugin = instance;
+       
     }
-
+    
     
     @EventHandler
-      public void onPlayerMove(PlayerMoveEvent event) {
-       current = event.getPlayer();
-       Location location = current.getLocation();
-       height = location.getY();
-       if(height > 75){
-           current.sendMessage("Get down from there!");
+    public void onPlayerMove(PlayerMoveEvent event) {
+        current = event.getPlayer();
+        Location location = current.getLocation();
+        height = location.getY();
+        if(height > plugin.heightLimit){
+            movePlayerTo = plugin.heightLimit - takeAwayFromHeightLimit;
+            location.setY(movePlayerTo);
+           
+           
        }
        
-       }
-       
-    
-    
-            
-    
-
+       }     
     
 }
