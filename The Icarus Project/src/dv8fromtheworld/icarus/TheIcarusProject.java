@@ -19,6 +19,7 @@ public class TheIcarusProject extends JavaPlugin{
      private int len;
      public int heightLimit;
      public int takeAwayFromHeightLimit;
+     public String message;
     
     
     public void onDisable() {
@@ -41,12 +42,14 @@ public class TheIcarusProject extends JavaPlugin{
 
     private void loadConfiguration() {
         config.options().header("This is the configuration file for the TheIcarusProject plugin.");
-        config.addDefault("height limit", 75);
-        config.addDefault("Amount to move the player downwards", 1);
+        config.addDefault("height limit", 255);
+        config.addDefault("Amount downwards", 1);
+        config.addDefault("Warning message", "You cannot go any higher, sorry chap!");
         config.options().copyDefaults(true);
         saveConfig();
         heightLimit = config.getInt("height limit");
-        takeAwayFromHeightLimit = config.getInt("Amount to move the player downwards");
+        takeAwayFromHeightLimit = config.getInt("Amount downwards");
+        message = config.getString("Warning message");
     }
     
     

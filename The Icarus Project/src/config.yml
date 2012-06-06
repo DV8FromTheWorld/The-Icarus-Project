@@ -1,2 +1,10 @@
 # This is the configuration file for the TheIcarusProject plugin.
-height limit: 75
+#
+#This sets height at which a player cannot go any higher.
+height limit: 255
+#
+#This sets the amount that a player will be moved downwards when they reach the height limit
+Amount downwards: 1
+#
+#This sets the message sent to the user when they reach the height limit.
+Warning message: You cannot go any higher, sorry chap!

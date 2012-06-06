@@ -33,7 +33,7 @@ public class IcarusPlayerListener implements Listener{
             movePlayerTo = location;
             movePlayerTo.setY(newY);
             event.setTo(movePlayerTo);
-            current.sendMessage("you cant go higher than this, sorry chap!");
+            current.sendMessage(plugin.message);
            
            
        }
