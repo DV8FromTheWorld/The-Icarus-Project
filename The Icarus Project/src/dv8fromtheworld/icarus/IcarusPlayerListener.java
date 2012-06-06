@@ -9,12 +9,14 @@ import org.bukkit.event.player.PlayerMoveEvent;
  
 
 public class IcarusPlayerListener implements Listener{
-
     private final TheIcarusProject plugin;
     public double height;
     public Player current;
-    int takeAwayFromHeightLimit = 2;
-    public int movePlayerTo;
+    public Location location;
+    public Location movePlayerTo;
+    public int takeAwayFromHeightLimit = 2;
+    public int newY;
+    private Location test;
     
     IcarusPlayerListener(TheIcarusProject instance) {
        this.plugin = instance;
@@ -25,15 +27,20 @@ public class IcarusPlayerListener implements Listener{
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         current = event.getPlayer();
-        Location location = current.getLocation();
+        location = current.getLocation();
         height = location.getY();
         if(height > plugin.heightLimit){
-            movePlayerTo = plugin.heightLimit - takeAwayFromHeightLimit;
-            location.setY(movePlayerTo);
+           // newY = plugin.heightLimit - takeAwayFromHeightLimit;
+           // movePlayerTo = location;
+           // movePlayerTo.setY(newY);
+           // event.setTo(movePlayerTo);
+            test = event.getFrom();
+            event.setTo(test);
+            current.sendMessage("you cant go higher than this, sorry chap!");
            
            
        }
        
-       }     
+    }     
     
 }
