@@ -1,12 +1,10 @@
 package dv8fromtheworld.icarus;
 
-import java.lang.Math;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.permissions.*;
  
 
 public class IcarusPlayerListener implements Listener{
@@ -16,7 +14,6 @@ public class IcarusPlayerListener implements Listener{
     public Location location;
     public Location movePlayerTo;
     public int newY;
-    private Location test;
     
     IcarusPlayerListener(TheIcarusProject instance) {
        this.plugin = instance;
@@ -33,11 +30,11 @@ public class IcarusPlayerListener implements Listener{
                 
             }
             else{
-            newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-            movePlayerTo = location;
-            movePlayerTo.setY(newY);
-            event.setTo(movePlayerTo);
-            current.sendMessage(plugin.message);
+                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
+                movePlayerTo = location;
+                movePlayerTo.setY(newY);
+                event.setTo(movePlayerTo);
+                current.sendMessage(plugin.message);
             }
            
            
