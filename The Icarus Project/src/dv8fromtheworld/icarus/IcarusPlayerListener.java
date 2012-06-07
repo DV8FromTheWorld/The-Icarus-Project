@@ -1,5 +1,6 @@
 package dv8fromtheworld.icarus;
 
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -29,7 +30,15 @@ public class IcarusPlayerListener implements Listener{
             if(current.hasPermission("TIP.ignore")){
                 
             }
-            else{
+            if(plugin.playSound = true){
+                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
+                movePlayerTo = location;
+                movePlayerTo.setY(newY);
+                event.setTo(movePlayerTo);
+                current.sendMessage(plugin.message);
+                current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+            }
+            if(plugin.playSound = false){
                 newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
                 movePlayerTo = location;
                 movePlayerTo.setY(newY);

@@ -19,6 +19,7 @@ public class TheIcarusProject extends JavaPlugin{
      public int heightLimit;
      public int takeAwayFromHeightLimit;
      public String message;
+     public boolean playSound;
     
     
     public void onDisable() {
@@ -44,11 +45,13 @@ public class TheIcarusProject extends JavaPlugin{
         config.addDefault("height limit", 255);
         config.addDefault("Amount downwards", 1);
         config.addDefault("Warning message", "You cannot go any higher, sorry chap!");
+        config.addDefault("Play sound at height limit?", false);
         config.options().copyDefaults(true);
         saveConfig();
         heightLimit = config.getInt("height limit");
         takeAwayFromHeightLimit = config.getInt("Amount downwards");
         message = config.getString("Warning message");
+        playSound = config.getBoolean("Play sound at height limit?");
     }
     
     
