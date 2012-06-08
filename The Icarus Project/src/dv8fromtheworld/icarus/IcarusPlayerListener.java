@@ -30,25 +30,28 @@ public class IcarusPlayerListener implements Listener{
             if(current.hasPermission("TIP.ignore")){
                 
             }
-            if(plugin.playSound = true){
-                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-                movePlayerTo = location;
-                movePlayerTo.setY(newY);
-                event.setTo(movePlayerTo);
-                current.sendMessage(plugin.message);
-                current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+            
+            else{
+                if(plugin.playSound != true){
+                    newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
+                    movePlayerTo = location;
+                    movePlayerTo.setY(newY);
+                    event.setTo(movePlayerTo);
+                    current.sendMessage(plugin.message);
+
+                }
+                else{
+                    newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
+                    movePlayerTo = location;
+                    movePlayerTo.setY(newY);
+                    event.setTo(movePlayerTo);
+                    current.sendMessage(plugin.message);
+                    current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+                        
+                }
             }
-            if(plugin.playSound = false){
-                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-                movePlayerTo = location;
-                movePlayerTo.setY(newY);
-                event.setTo(movePlayerTo);
-                current.sendMessage(plugin.message);
-            }
-           
-           
-       }
+        }
+          
+    }
        
-    }     
-    
 }
