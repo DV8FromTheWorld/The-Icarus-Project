@@ -31,27 +31,25 @@ public class IcarusPlayerListener implements Listener{
                 
             }
             
-            else{
-                if(plugin.playSound != true){
-                    newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-                    movePlayerTo = location;
-                    movePlayerTo.setY(newY);
-                    event.setTo(movePlayerTo);
-                    current.sendMessage(plugin.message);
-
+            else if(plugin.playSound == true){
+                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
+                movePlayerTo = location;
+                movePlayerTo.setY(newY);
+                event.setTo(movePlayerTo);
+                current.sendMessage(plugin.message);
+                current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
                 }
-                else{
+            else{
+                //the below "if" statement is not needed (theoretically), but is there so you know what it does.
+                if(plugin.playSound == false){
                     newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
                     movePlayerTo = location;
                     movePlayerTo.setY(newY);
                     event.setTo(movePlayerTo);
                     current.sendMessage(plugin.message);
-                    current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
-                        
                 }
             }
         }
-          
     }
-       
+          
 }
