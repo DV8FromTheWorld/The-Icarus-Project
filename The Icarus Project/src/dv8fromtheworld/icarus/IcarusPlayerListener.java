@@ -1,8 +1,12 @@
 package dv8fromtheworld.icarus;
 
+import java.util.Locale;
 import org.bukkit.Effect;
 import org.bukkit.Location;
+import org.bukkit.World.*;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -28,28 +32,22 @@ public class IcarusPlayerListener implements Listener{
         height = location.getY();
         if(height > plugin.heightLimit){
             if(current.hasPermission("TIP.ignore")){
-                
+                    
+                }
+            else if(current.getWorld().getEnvironment().NETHER){
+
             }
             
-            else if(plugin.playSound == true){
+            else{
                 newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
                 movePlayerTo = location;
                 movePlayerTo.setY(newY);
                 event.setTo(movePlayerTo);
                 current.sendMessage(plugin.message);
-                current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
-                }
-            else{
-                //the below "if" statement is not needed (theoretically), but is there so you know what it does.
-                if(plugin.playSound == false){
-                    newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-                    movePlayerTo = location;
-                    movePlayerTo.setY(newY);
-                    event.setTo(movePlayerTo);
-                    current.sendMessage(plugin.message);
+                if(plugin.playSound == true){
+                    current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+                    }
                 }
             }
         }
     }
-          
-}
