@@ -1,13 +1,32 @@
 # This is the configuration file for the TheIcarusProject plugin.
+###########################################################################
+#MAIN WORLD OPTIONS
 #
 #This sets height at which a player cannot go any higher.
-height limit: 255
+Height limit for the main world: 255
 #
 #This sets the amount that a player will be moved downwards when they reach the height limit
-Amount downwards: 1
+Amount downwards for the main world: 1
 #
 #This sets the message sent to the user when they reach the height limit.
-Warning message: You cannot go any higher, sorry chap!
+Warning message for main world: You cannot go any higher, sorry chap!
 #
 #if set to true, will play a sound when the player reaches the height limit. Defualt: false
-Play sound at height limit?: false
+Play sound at the main world height limit?: false
+#
+###########################################################################
+#NETHER WORLD OPTIONS
+#
+#This sets height at which a player cannot go any higher.
+Height limit for the nether: 255
+#
+#This sets the amount that a player will be moved downwards when they reach the height limit
+Amount downwards for the nether: 1
+#
+#This sets the message sent to the user when they reach the height limit.
+Warning message for nether: You cannot go any higher, sorry chap!
+#
+#if set to true, will play a sound when the player reaches the height limit. Defualt: false
+Play sound at nether height limit?: false
+
+

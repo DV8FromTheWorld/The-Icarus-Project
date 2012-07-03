@@ -19,6 +19,8 @@ public class IcarusPlayerListener implements Listener{
     public Location location;
     public Location movePlayerTo;
     public int newY;
+    public Environment world;
+
     
     IcarusPlayerListener(TheIcarusProject instance) {
        this.plugin = instance;
@@ -28,26 +30,43 @@ public class IcarusPlayerListener implements Listener{
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         current = event.getPlayer();
+        world = current.getWorld().getEnvironment();
         location = current.getLocation();
         height = location.getY();
-        if(height > plugin.heightLimit){
-            if(current.hasPermission("TIP.ignore")){
-                    
-                }
-            else if(current.getWorld().getEnvironment().NETHER){
+       
+        if(world == Environment.NORMAL){
+            if(height > plugin.worldHeightLimit){
+                if(current.hasPermission("TIP.ignore.world")){
 
-            }
-            
-            else{
-                newY = (plugin.heightLimit - plugin.takeAwayFromHeightLimit);
-                movePlayerTo = location;
-                movePlayerTo.setY(newY);
-                event.setTo(movePlayerTo);
-                current.sendMessage(plugin.message);
-                if(plugin.playSound == true){
-                    current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+                } 
+                else{
+                    newY = (plugin.worldHeightLimit - plugin.takeAwayFromWorldHeightLimit);
+                    movePlayerTo = location;
+                    movePlayerTo.setY(newY);
+                    event.setTo(movePlayerTo);
+                    current.sendMessage(plugin.worldMessage);
+                    if(plugin.playSoundWorld == true){
+                        current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
                     }
                 }
             }
+        }    
+        if(world == Environment.NETHER){
+            if(height > plugin.worldHeightLimit){
+                if(current.hasPermission("TIP.ignore.nether")){
+
+                } 
+                else{
+                    newY = (plugin.netherHeightLimit - plugin.takeAwayFromNetherHeightLimit);
+                    movePlayerTo = location;
+                    movePlayerTo.setY(newY);
+                    event.setTo(movePlayerTo);
+                    current.sendMessage(plugin.netherMessage);
+                    if(plugin.playSoundNether == true){
+                        current.playEffect(location, Effect.ZOMBIE_CHEW_IRON_DOOR, 1);
+                    }
+                }
+            }      
         }
-    }
+    }    
+}

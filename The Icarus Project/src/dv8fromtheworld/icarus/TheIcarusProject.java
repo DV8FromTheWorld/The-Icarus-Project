@@ -11,15 +11,19 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TheIcarusProject extends JavaPlugin{
-     public static File configFile;
-     private PluginDescriptionFile info;
-     private final Logger myLogger = Logger.getLogger("Minecraft");
-     private FileConfiguration config;
-     private int len;
-     public int heightLimit;
-     public int takeAwayFromHeightLimit;
-     public String message;
-     public boolean playSound;
+    public static File configFile;
+    private PluginDescriptionFile info;
+    private final Logger myLogger = Logger.getLogger("Minecraft");
+    private FileConfiguration config;
+    private int len;
+    public int worldHeightLimit;
+    public int takeAwayFromWorldHeightLimit;
+    public String worldMessage;
+    public boolean playSoundWorld;
+    public int netherHeightLimit;
+    public int takeAwayFromNetherHeightLimit;
+    public String netherMessage;
+    public boolean playSoundNether;
     
     
     public void onDisable() {
@@ -42,17 +46,31 @@ public class TheIcarusProject extends JavaPlugin{
 
     private void loadConfiguration() {
         config.options().header("This is the configuration file for the TheIcarusProject plugin.");
-        config.addDefault("height limit", 255);
-        config.addDefault("Amount downwards", 1);
-        config.addDefault("Warning message", "You cannot go any higher, sorry chap!");
-        config.addDefault("Play sound at height limit?", false);
+        config.addDefault("Height limit for the main world", 255);
+        config.addDefault("Amount downwards for the main world", 1);
+        config.addDefault("Warning message for main world", "You cannot go any higher, sorry chap!");
+        config.addDefault("Play sound at the main world height limit?", false);
+        
+        config.addDefault("Height limit for the nether", 255);
+        config.addDefault("Amount downwards for the nether", 1);
+        config.addDefault("Warning message for nether", "You cannot go any higher, sorry chap!");
+        config.addDefault("Play sound at nether height limit?", false);
+        
         config.options().copyDefaults(true);
         saveConfig();
-        heightLimit = config.getInt("height limit");
-        takeAwayFromHeightLimit = config.getInt("Amount downwards");
-        message = config.getString("Warning message");
-        playSound = config.getBoolean("Play sound at height limit?");
+        
+        worldHeightLimit = config.getInt("Height limit for the main world");
+        takeAwayFromWorldHeightLimit = config.getInt("Amount downwards for the main world");
+        worldMessage = config.getString("Warning message for main world");
+        playSoundWorld = config.getBoolean("Play sound at the main world height limit");
+        
+        netherHeightLimit = config.getInt("Height limit for the nether");
+        takeAwayFromNetherHeightLimit = config.getInt("Amount downwards for the nether");
+        netherMessage = config.getString("Warning message for nether");
+        playSoundNether = config.getBoolean("Play sound at nether height limit?");
+        
     }
+    
     
     
     private void logMessage(Level logLevel, String message) {
