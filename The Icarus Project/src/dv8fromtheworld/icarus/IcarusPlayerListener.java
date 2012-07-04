@@ -51,7 +51,7 @@ public class IcarusPlayerListener implements Listener{
                 }
             }
         }    
-        if(world == Environment.NETHER){
+        else if(world == Environment.NETHER){
             if(height > plugin.worldHeightLimit){
                 if(current.hasPermission("TIP.ignore.nether")){
 

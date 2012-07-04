@@ -25,7 +25,6 @@ public class TheIcarusProject extends JavaPlugin{
     public String netherMessage;
     public boolean playSoundNether;
     
-    
     public void onDisable() {
        logMessage("has been disabled.");
     }
@@ -50,7 +49,6 @@ public class TheIcarusProject extends JavaPlugin{
         config.addDefault("Amount downwards for the main world", 1);
         config.addDefault("Warning message for main world", "You cannot go any higher, sorry chap!");
         config.addDefault("Play sound at the main world height limit?", false);
-        
         config.addDefault("Height limit for the nether", 255);
         config.addDefault("Amount downwards for the nether", 1);
         config.addDefault("Warning message for nether", "You cannot go any higher, sorry chap!");
@@ -95,6 +93,5 @@ public class TheIcarusProject extends JavaPlugin{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

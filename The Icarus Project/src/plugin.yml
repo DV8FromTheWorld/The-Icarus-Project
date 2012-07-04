@@ -13,3 +13,9 @@ permissions:
   TIP.ignore.nether:
     descrition: excuses player from the height limit in the nether
     default: false
+  TIP.ignore.*:
+    descrition: Excuses player from both nether and overworld.
+    default: false
+    children:
+      TIP.ignore.world: true
+      TIP.ignore.nether: true
